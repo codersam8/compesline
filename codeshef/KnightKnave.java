@@ -22,17 +22,19 @@ class KnightKnave{
 	
 	void forTestCase(int[][] pA){
 		int does00Exist = 0;
-		int distSols = pA.length;
+		//int distSols = pA.length;
 		int smallest = 2*(int)Math.pow(10,pA.length);
-		for(int i = 0;i<pA.length;i++){//for selecting which //person to compare against
+		for(int i = 0;i<pA.length;i++){//for selecting one person to compare against
 			if( pA[i][0] == 0 && pA[i][1] == 0){
 				does00Exist++;
 			}
 			int op[] = new int[pA.length];
-			int lb = pA[i][0];
 			int ub = pA[i][1];
-			for(int j = 0;j<pA.length;j++){//comparing //against each person in the test case
-				op[i] *= 10;
+			for(int lb = pA[i][0],int count = 1;lb <= up;lb++){//for number in persons range
+				for(int ep = 0;ep < pA.length;ep++)//for each person in test case
+				{
+				}
+					op[i] *= 10;
 				if(!(ub < pA[j][0])){
 					if(!(lb > pA[j][1])){
 						op[i]++;
