@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
-class KnightKnave{
+class KnightKnave
+{
 	Scanner scn = new Scanner(System.in);
 	public static void main(String args[]){
 		KnightKnave kk = new KnightKnave();
@@ -22,35 +23,55 @@ class KnightKnave{
 	
 	void forTestCase(int[][] pA){
 		int does00Exist = 0;
-		//int distSols = pA.length;
-		int smallest = 2*(int)Math.pow(10,pA.length);
+		int distSols = 0;
+		int smallest = (int)Math.pow(10,pA.length);
+		int op[] = new int[pA.length];
+		int noOfSols=pA.length+1;//for keeping track of valid solutions till now
 		for(int i = 0;i<pA.length;i++){//for selecting one person to compare against
 			if( pA[i][0] == 0 && pA[i][1] == 0){
 				does00Exist++;
 			}
-			int op[] = new int[pA.length];
 			int ub = pA[i][1];
-			for(int lb = pA[i][0],int count = 1;lb <= up;lb++){//for number in persons range
-				for(int ep = 0;ep < pA.length;ep++)//for each person in test case
+			for(int lb = pA[i][0];lb <= ub;lb++){//for number in persons range
+				int count=0;
+				int sol=0;
+				for(int ep = 0;ep < pA.length && !(count > lb);ep++)//for each person in test case
+				{	
+					sol*=10;
+					if((lb >= pA[ep][0] )&&(lb <= pA[ep][1] ))
+					{
+						sol++;
+						count++;
+						System.out.println("time");
+					}
+						
+					
+				 }
+				System.out.println("lb here "+lb);
+				System.out.println("count here "+count);
+				if(lb == count)
 				{
-				}
-					op[i] *= 10;
-				if(!(ub < pA[j][0])){
-					if(!(lb > pA[j][1])){
-						op[i]++;
+					int k = distSols-1;
+					for(;k>=0 && op[k]!=sol; k--)
+					{
+					}
+					if(k== -1)
+					{	
+						op[distSols] = sol;
+						if(smallest > op[distSols])
+							smallest = op[distSols];
+						distSols++;
+						System.out.println("came here");
 						
 					}
+										
+					System.out.println("k here "+k);
+					
+					
+					//noOfSols++;
 				}
+					
 			}
-			int k = i-1;
-			for(;k>=0 && op[k]!=op[i]; k--)
-			{
-			}
-			if(k!= -1)
-				distSols--;
-			if(smallest > op[i])
-				smallest = op[i];
-			
 		}
 		if(does00Exist == 0)
 		{
