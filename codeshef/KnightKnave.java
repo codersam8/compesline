@@ -26,7 +26,6 @@ class KnightKnave
 		int distSols = 0;
 		int smallest = (int)Math.pow(10,pA.length);
 		int op[] = new int[pA.length];
-		int noOfSols=pA.length+1;//for keeping track of valid solutions till now
 		for(int i = 0;i<pA.length;i++){//for selecting one person to compare against
 			if( pA[i][0] == 0 && pA[i][1] == 0){
 				does00Exist++;
@@ -42,13 +41,10 @@ class KnightKnave
 					{
 						sol++;
 						count++;
-						System.out.println("time");
 					}
 						
 					
 				 }
-				System.out.println("lb here "+lb);
-				System.out.println("count here "+count);
 				if(lb == count)
 				{
 					int k = distSols-1;
@@ -61,18 +57,11 @@ class KnightKnave
 						if(smallest > op[distSols])
 							smallest = op[distSols];
 						distSols++;
-						System.out.println("came here");
-						
 					}
-										
-					System.out.println("k here "+k);
-					
-					
-					//noOfSols++;
 				}
-					
 			}
 		}
+		display(op);
 		if(does00Exist == 0)
 		{
 			System.out.println((distSols+1) % 1000000007);
@@ -90,6 +79,12 @@ class KnightKnave
 				System.out.print(0);
 			}
 			System.out.print(smallest);
+		}
+	}
+	void display(int[] op){
+		for (int i = 0;i<op.length;i++)
+		{
+			System.out.println(op[i]);
 		}
 	}
 	
