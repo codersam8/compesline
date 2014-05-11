@@ -27,7 +27,7 @@ class KnightKnave
 		int smallest = (int)Math.pow(10,pA.length);
 		int op[] = new int[pA.length];
 		for(int i = 0;i<pA.length;i++){//for selecting one person to compare against
-			if( pA[i][0] == 0 && pA[i][1] == 0){
+			if( pA[i][0] == 0 || pA[i][1] == 0){
 				does00Exist++;
 			}
 			int ub = pA[i][1];
@@ -90,3 +90,4 @@ class KnightKnave
 	
 
 }
+
