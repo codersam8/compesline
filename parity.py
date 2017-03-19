@@ -1,4 +1,4 @@
-http://www.practice.geeksforgeeks.org/editorial.php?pid=395
+#http://www.practice.geeksforgeeks.org/editorial.php?pid=395
 test_cases = int(input().strip())
 # print("test_cases " + str(test_cases))
 for i in range(test_cases):
