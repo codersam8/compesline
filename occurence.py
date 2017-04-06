@@ -15,9 +15,10 @@ def find_last(num_arr, low, hi, num_to_find):
     if low <= hi:
         mid = int((low + hi) / 2)
 
-        if mid < (len(num_arr)):
-            if num_to_find < num_arr[mid + 1] and num_to_find == num_arr[mid]:
+        if mid < (len(num_arr)) and num_to_find < num_arr[mid + 1] and num_to_find == num_arr[mid]:
                 return mid
+        elif (mid + 1) < (len(num_arr)) and num_to_find == num_arr[mid]:
+            return mid
         elif num_to_find < num_arr[mid]:
             return find_last(num_arr, low, mid - 1, num_to_find)
         else:
