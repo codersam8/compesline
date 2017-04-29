@@ -7,7 +7,7 @@ def prn_str(ip_str, idx):
     ip_str = ip_str[:]
     # print(ip_str, idx)
     if idx == len(ip_str):
-        print(''.join(ip_str))
+        print(''.join(ip_str), end=' ')
     elif ip_str[idx] == '?':
         ip_str[idx] = '0'
         prn_str(ip_str, idx + 1)
@@ -23,5 +23,6 @@ for a_tc in range(test_cases):
     # print('ip_str', ip_str)
     
     prn_str(ip_str, 0)
+    print()
 
     
