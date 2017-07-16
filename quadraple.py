@@ -19,7 +19,7 @@ for a_tc in range(test_cases):
                     break
                 for l in range(k + 1, len_a):
                     if (num_list[i] + num_list[j] +
-                        num_list[k] + num_list[l] == tot):
+                            num_list[k] + num_list[l] == tot):
                         found = True
                         break
     if found:
