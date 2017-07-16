@@ -8,8 +8,8 @@ class Browser
      System.in));
      public static void main(String[] args)
      {
-	  Browser b = new Browser();
-	  b.begin();
+         Browser b = new Browser();
+         b.begin();
      }
 
      void begin()
