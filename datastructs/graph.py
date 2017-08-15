@@ -1,6 +1,5 @@
 class Graph:
     def __init__(self):
-        
-        print('made a graph')
+        pass
 
 Graph()
