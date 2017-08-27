@@ -29,6 +29,9 @@ class LinkedDiGraph(Graph):
     def get_edge_count(self):
         return self.no_of_edges
 
+    def breadth_first_search(self, v, reach, label):
+        pass
+
 
 linked_di_graph = LinkedDiGraph(4)
 print('Edges %s' % linked_di_graph.get_edge_count())
