@@ -12,12 +12,13 @@ class Chain:
     def __str__(self):
         chain_str = '['
         curr_node = self.first_node
-        if not curr_node:
-            return '[]'
-        while curr_node.next:
+        while curr_node:
             chain_str += str(curr_node.element) + ', '
             curr_node = curr_node.next
-        chain_str += str(curr_node.element) + ']'
+
+        if self.size:
+            chain_str = chain_str[:-2]
+        chain_str = chain_str + ']'
         return chain_str
 
     def is_empty(self):
