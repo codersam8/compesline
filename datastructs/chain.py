@@ -12,7 +12,6 @@ class Chain:
     def __str__(self):
         chain_str = '['
         curr_node = self.first_node
-        print(curr_node)
         if not curr_node:
             return '[]'
         while curr_node.next:
