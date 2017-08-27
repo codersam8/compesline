@@ -12,6 +12,7 @@ class Chain:
     def __str__(self):
         chain_str = '['
         curr_node = self.first_node
+        # modified because a chain can be empty
         while curr_node:
             chain_str += str(curr_node.element) + ', '
             curr_node = curr_node.next
