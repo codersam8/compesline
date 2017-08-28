@@ -14,12 +14,23 @@ class ArrayQueue:
         self.que[self.rear] = ele
 
     def remove(self):
-        if self.is_empty:
+        if self.is_empty():
             return None
         self.front = (self.front + 1) % len(self.que)
         front_ele = self.que[self.front]
         self.que[self.front] = None
         return front_ele
 
+    def __str__(self):
+        q_str = '['
+        curr_pos = self.front + 1
+        while curr_pos != self.rear:
+            q_str += str(self.que[curr_pos]) + ', '
+            curr_pos = (curr_pos + 1) % len(self.que)
+        if self.front != self.rear:
+            q_str += str(self.que[curr_pos])
 
-aq = ArrayQueue(3)
+        q_str += ']'
+        return q_str
+
+# aq = ArrayQueue(3)

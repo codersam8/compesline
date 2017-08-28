@@ -2,6 +2,7 @@ from edge import Edge
 from edgenode import EdgeNode
 from graph import Graph
 from graphchain import GraphChain
+from arrayqueue import ArrayQueue
 
 
 class LinkedDiGraph(Graph):
@@ -30,16 +31,51 @@ class LinkedDiGraph(Graph):
         return self.no_of_edges
 
     def breadth_first_search(self, v, reach, label):
-        pass
+        aq = ArrayQueue()
+        reach[v] = label
+        aq.put(v)
+        while not aq.is_empty():
+            w = aq.remove()
+            p = self.adj_list[w].first_node
+            while p:
+                u = p.element.v
+                if not reach[u]:
+                    aq.put(u)
+                    reach[u] = label
+                p = p.next
+        print(reach)
 
 
-linked_di_graph = LinkedDiGraph(4)
+linked_di_graph = LinkedDiGraph(10)
+# print('Edges %s' % linked_di_graph.get_edge_count())
+# linked_di_graph.put_edge(Edge(2, 4))
+# linked_di_graph.put_edge(Edge(1, 3))
+# linked_di_graph.put_edge(Edge(2, 1))
+# linked_di_graph.put_edge(Edge(1, 4))
+# linked_di_graph.put_edge(Edge(4, 2))
+# print('The graph is ')
+# linked_di_graph.output()
+# linked_di_graph.
+
 print('Edges %s' % linked_di_graph.get_edge_count())
-linked_di_graph.put_edge(Edge(2, 4))
+linked_di_graph.put_edge(Edge(1, 2))
 linked_di_graph.put_edge(Edge(1, 3))
-linked_di_graph.put_edge(Edge(2, 1))
 linked_di_graph.put_edge(Edge(1, 4))
-linked_di_graph.put_edge(Edge(4, 2))
+linked_di_graph.put_edge(Edge(2, 5))
+linked_di_graph.put_edge(Edge(3, 5))
+linked_di_graph.put_edge(Edge(4, 3))
+linked_di_graph.put_edge(Edge(4, 6))
+linked_di_graph.put_edge(Edge(4, 7))
+linked_di_graph.put_edge(Edge(5, 8))
+linked_di_graph.put_edge(Edge(6, 8))
+linked_di_graph.put_edge(Edge(6, 3))
+linked_di_graph.put_edge(Edge(7, 8))
+linked_di_graph.put_edge(Edge(7, 9))
+linked_di_graph.put_edge(Edge(10, 8))
+linked_di_graph.put_edge(Edge(10, 9))
+
+
 print('The graph is ')
 linked_di_graph.output()
-# linked_di_graph.
+reach = [0] * 11
+linked_di_graph.breadth_first_search(2, reach, 1)
