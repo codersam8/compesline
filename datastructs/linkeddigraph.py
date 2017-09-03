@@ -45,6 +45,21 @@ class LinkedDiGraph(Graph):
                 p = p.next
         print(reach)
 
+    def rec_depth_first_search(self, vert):
+        self.reach[vert] = self.label
+        curr_vert = self.adj_list[vert].first_node
+        if curr_vert:
+            if self.reach[curr_vert.element.v] == 0:
+                self.reach[curr_vert.element.v] = self.label
+                self.rec_depth_first_search(curr_vert.element.v)
+
+    def depth_first_search(self, vert, reach, label):
+        self.reach = reach
+        self.label = label
+        self.reach[vert] = self.label
+        self.rec_depth_first_search(vert)
+        print(self.reach)
+
 
 linked_di_graph = LinkedDiGraph(10)
 # print('Edges %s' % linked_di_graph.get_edge_count())
@@ -78,4 +93,5 @@ linked_di_graph.put_edge(Edge(10, 9))
 print('The graph is ')
 linked_di_graph.output()
 reach = [0] * 11
-linked_di_graph.breadth_first_search(2, reach, 1)
+linked_di_graph.breadth_first_search(1, reach, 1)
+linked_di_graph.depth_first_search(1, reach, 1)

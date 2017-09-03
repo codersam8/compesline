@@ -1,5 +1,4 @@
 class Graph:
     def __init__(self):
         pass
-
-Graph()
+    # TODO: implement iterator and dfs and bfs here
