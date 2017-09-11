@@ -2,6 +2,8 @@ from binary_tree_node import BinaryTreeNode
 
 
 class linked_binary_tree:
+    root = None
+    visit = None
     def __init__(self):
         self.root = None
 
@@ -10,11 +12,21 @@ class linked_binary_tree:
                                    left.root,
                                    right.root)
 
-    def the_output(bi_tree_node):
+    def the_output(self, bi_tree_node):
         print(bi_tree_node.ele + ' ')
 
-    def pre_order_output():
-        pre_order(the_output)
+    def pre_order(visit):
+        linked_binary_tree.visit = visit
+        the_pre_order(root)
+
+    def pre_order_output(self):
+        self.pre_order(self.the_output)
+
+    def the_pre_order(self, btn):
+        if btn:
+            linked_binary_tree.visit(btn)
+            self.the_pre_order(btn.lc)
+            self.the_pre_order(btn.rc)
 
 
 if __name__ == '__main__':
