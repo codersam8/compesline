@@ -2,7 +2,6 @@ from binary_tree_node import BinaryTreeNode
 
 
 class linked_binary_tree:
-    root = None
     visit = None
     def __init__(self):
         self.root = None
@@ -13,12 +12,9 @@ class linked_binary_tree:
                                    right.root)
 
     def the_output(self, bi_tree_node):
-        print(bi_tree_node.ele + ' ')
+        print(str(bi_tree_node.ele) + ' ')
 
-    def pre_order(visit):
-        linked_binary_tree.visit = visit
-        the_pre_order(root)
-
+    
     def pre_order_output(self):
         self.pre_order(self.the_output)
 
@@ -27,6 +23,10 @@ class linked_binary_tree:
             linked_binary_tree.visit(btn)
             self.the_pre_order(btn.lc)
             self.the_pre_order(btn.rc)
+
+    def pre_order(self, visit):
+        linked_binary_tree.visit = visit
+        self.the_pre_order(self.root)
 
 
 if __name__ == '__main__':
@@ -40,3 +40,5 @@ if __name__ == '__main__':
     y.make_tree(3, w, x)
     z.make_tree(4, x, a)
     print("Preorder sequence is ")
+    z.pre_order_output()
+    print()
