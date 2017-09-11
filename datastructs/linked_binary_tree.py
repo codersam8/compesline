@@ -1,8 +1,10 @@
 from binary_tree_node import BinaryTreeNode
+from arrayqueue import ArrayQueue
 
 
 class linked_binary_tree:
     visit = None
+
     def __init__(self):
         self.root = None
 
@@ -14,7 +16,6 @@ class linked_binary_tree:
     def the_output(self, bi_tree_node):
         print(str(bi_tree_node.ele) + ' ', end=' ')
 
-    
     def pre_order_output(self):
         self.pre_order(self.the_output)
 
@@ -54,6 +55,21 @@ class linked_binary_tree:
         linked_binary_tree.visit = visit
         self.the_post_order(self.root)
 
+    def level_order_output(self):
+        self.level_order(self.the_output)
+
+    def level_order(self, visit):
+        linked_binary_tree.visit = visit
+        aq = ArrayQueue()
+        curr_node = self.root
+        while curr_node:
+            visit(curr_node)
+            if curr_node.lc:
+                aq.put(curr_node.lc)
+            if curr_node.rc:
+                aq.put(curr_node.rc)
+            curr_node = aq.remove()
+
 
 if __name__ == '__main__':
     a = linked_binary_tree()
@@ -75,4 +91,8 @@ if __name__ == '__main__':
 
     print('Postorder sequence is ')
     z.post_order_output()
+    print()
+
+    print('Levelorder sequence is ')
+    z.level_order_output()
     print()
