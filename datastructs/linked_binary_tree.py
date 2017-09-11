@@ -28,6 +28,32 @@ class linked_binary_tree:
         linked_binary_tree.visit = visit
         self.the_pre_order(self.root)
 
+    def in_order_output(self):
+        self.in_order(self.the_output)
+
+    def the_in_order(self, btn):
+        if btn:
+            self.the_in_order(btn.lc)
+            linked_binary_tree.visit(btn)
+            self.the_in_order(btn.rc)
+
+    def in_order(self, visit):
+        linked_binary_tree.visit = visit
+        self.the_in_order(self.root)
+
+    def post_order_output(self):
+        self.post_order(self.the_output)
+
+    def the_post_order(self, btn):
+        if btn:
+            self.the_post_order(btn.lc)
+            self.the_post_order(btn.rc)
+            linked_binary_tree.visit(btn)
+
+    def post_order(self, visit):
+        linked_binary_tree.visit = visit
+        self.the_post_order(self.root)
+
 
 if __name__ == '__main__':
     a = linked_binary_tree()
@@ -41,4 +67,12 @@ if __name__ == '__main__':
     z.make_tree(4, y, a)
     print("Preorder sequence is ")
     z.pre_order_output()
+    print()
+
+    print('Inorder sequence is ')
+    z.in_order_output()
+    print()
+
+    print('Postorder sequence is ')
+    z.post_order_output()
     print()
