@@ -12,7 +12,7 @@ class linked_binary_tree:
                                    right.root)
 
     def the_output(self, bi_tree_node):
-        print(str(bi_tree_node.ele) + ' ')
+        print(str(bi_tree_node.ele) + ' ', end=' ')
 
     
     def pre_order_output(self):
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     w.make_tree(1, a, a)
     x.make_tree(2, a, a)
     y.make_tree(3, w, x)
-    z.make_tree(4, x, a)
+    z.make_tree(4, y, a)
     print("Preorder sequence is ")
     z.pre_order_output()
     print()
