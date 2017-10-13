@@ -6,10 +6,13 @@ for a_tc in range(test_cases):
 biggest = max(lim_list)
 sieve_list = [True] * (biggest + 1)
 
-for val in range(2, biggest + 1):
+val = 2
+# need to check why this is necessary
+while val ** 2 <= biggest:
     if sieve_list[val]:
         for val2 in range((2*val), biggest + 1, val):
             sieve_list[val2] = False
+    val += 1
 
 for lim in lim_list:
     for val in range(2, lim + 1):
