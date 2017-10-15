@@ -3,7 +3,7 @@ test_cases = int(input().strip())
 
 for a_tc in range(test_cases):
     a_num = int(input().strip())
-    a_num = a_num if not a_num else (a_num & (a_num - 1))
+    a_num = 1 if not a_num else (a_num & (a_num - 1))
     if not a_num:
         print('YES')
     else:
